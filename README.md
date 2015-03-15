@@ -1,7 +1,7 @@
-Juju Digital Ocean Provider
+Juju RackSpace Provider
 ---------------------------
 
-.. image:: https://www.digitalocean.com/assets/images/logos-badges/png/DO_Logo_Horizontal_Blue-a2b16fb8.png
+.. image:: https://0ffddf3700fca63d7eee-f2158e9965ca1e4dc7433839c207ae5c.ssl.cf1.rackcdn.com/site_media/images/logo-rackspace-managed-cloud-company.png
    :target: here_
 
 
@@ -200,7 +200,7 @@ machine to allocate for an environment. Those criteria can be related
 to size of the machine, its location, or other provider specific
 criteria.
 
-This plugin accepts the standard `juju constraints`_
+This plugin accepts the standard [juju constraints](https://juju.ubuntu.com/docs/reference-constraints.html)
 
   - cpu-cores
   - memory
@@ -213,8 +213,7 @@ Additionally it supports the following provider specific constraints.
     values include ams2, nyc1, nyc2, sfo1, sg1. The plugin defaults to nyc2.
 
   - 'transfer' to denote the terabytes of transfer included in the
-    instance montly cost (integer size in gigabytes).
+    instance monthly cost (integer size in gigabytes).
 
 
 .. _here: https://www.digitalocean.com/?refcode=5df4b80c84c8
-.. _juju constraints: https://juju.ubuntu.com/docs/reference-constraints.html

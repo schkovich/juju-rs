@@ -1,16 +1,16 @@
 from setuptools import setup, find_packages
 
 setup(name='juju-rs',
-      version="0.5.1",
+      version="0.0.1",
       classifiers=[
           'Intended Audience :: Developers',
           'Programming Language :: Python',
           'Operating System :: OS Independent'],
-      author='Kapil Thangavelu',
-      author_email='kapil.foss@gmail.com',
-      description="Digital Ocean integration with juju",
+      author='Goran Miskovic',
+      author_email='schkovich@gmail.com',
+      description="RackSpace integration with juju",
       long_description=open("README.rst").read(),
-      url='https://github.com/kapilt/juju-digitalocean',
+      url='https://github.com/schkovich/juju-rs.git',
       license='BSD',
       packages=find_packages(),
       install_requires=["PyYAML", "requests"],
