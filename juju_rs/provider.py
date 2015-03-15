@@ -5,19 +5,19 @@ import time
 from juju_rs.exceptions import ConfigError, ProviderError
 from juju_rs.client import Client
 
-log = logging.getLogger("juju.docean")
+log = logging.getLogger("juju.rspace")
 
 
 def factory():
-    cfg = DigitalOcean.get_config()
-    return DigitalOcean(cfg)
+    cfg = RackSpace.get_config()
+    return RackSpace(cfg)
 
 
 def validate():
-    DigitalOcean.get_config()
+    RackSpace.get_config()
 
 
-class DigitalOcean(object):
+class RackSpace(object):
 
     def __init__(self, config, client=None):
         self.config = config

@@ -46,7 +46,7 @@ class Client(object):
     def __init__(self, client_id, api_key):
         self.client_id = client_id
         self.api_key = api_key
-        self.api_url_base = 'https://api.digitalocean.com/v1'
+        self.api_url_base = 'https://identity.api.rackspacecloud.com/v2.0/tokens'
 
     def get_images(self, filter="global"):
         data = self.request("/images")

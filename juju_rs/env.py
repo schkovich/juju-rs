@@ -7,7 +7,7 @@ import socket
 import os
 import yaml
 
-log = logging.getLogger("juju.docean")
+log = logging.getLogger("juju.rspace")
 
 from juju_rs.constraints import SERIES_MAP
 

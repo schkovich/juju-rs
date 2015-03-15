@@ -17,7 +17,7 @@ class EnvironmentTest(Base):
     def test_bootstrap_jenv(self, run_juju):
         # Setup some mocks
         self.config.verbose = False
-        self.config.get_env_name.return_value = "docean"
+        self.config.get_env_name.return_value = "rspace"
         self.config.juju_home = juju_home = self.mkdir()
         self.config.get_env_conf.return_value = os.path.join(
             juju_home, "environments.yaml")
@@ -38,7 +38,7 @@ class EnvironmentTest(Base):
                     {"type": "ec2",
                      "region": "us-east-1",
                      "control-bucket": "rabbit-moon"},
-                 "docean":
+                 "rspace":
                     {"type": "manual",
                      "bootstrap-user": "root",
                      "bootstrap-host": "manual"}}}))
@@ -48,18 +48,18 @@ class EnvironmentTest(Base):
                 cmd, ['juju', 'bootstrap', '--debug', '--upload-tools',
                       "--series", "precise,trusty"])
             self.assertTrue(env['JUJU_HOME'].startswith(juju_home))
-            self.assertTrue(env['JUJU_HOME'].endswith('boot-docean'))
+            self.assertTrue(env['JUJU_HOME'].endswith('boot-rspace'))
             with open(os.path.join(env['JUJU_HOME'],
                                    'environments.yaml')) as fh:
                 data = yaml.safe_load(fh.read())
                 self.assertEqual(
-                    data['environments'].keys(), ['docean'])
+                    data['environments'].keys(), ['rspace'])
                 self.assertEqual(
-                    data['environments']['docean']['bootstrap-host'],
+                    data['environments']['rspace']['bootstrap-host'],
                     '1.1.1.1')
 
             with open(os.path.join(env['JUJU_HOME'],
-                                   'environments', 'docean.jenv'), 'w') as fh:
+                                   'environments', 'rspace.jenv'), 'w') as fh:
                 fh.write('hello world')
 
         run_juju.side_effect = verify_home
@@ -67,4 +67,4 @@ class EnvironmentTest(Base):
         self.env = Environment(self.config)
         self.env.bootstrap_jenv('1.1.1.1')
 
-        self.assertNotIn('boot-docean', os.listdir(juju_home))
+        self.assertNotIn('boot-rspace', os.listdir(juju_home))

@@ -7,7 +7,7 @@ from Queue import Queue, Empty
 import threading
 
 
-log = logging.getLogger("juju.docean")
+log = logging.getLogger("juju.rspace")
 
 
 class Runner(object):

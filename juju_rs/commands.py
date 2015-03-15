@@ -9,7 +9,7 @@ from juju_rs import ops
 from juju_rs.runner import Runner
 
 
-log = logging.getLogger("juju.docean")
+log = logging.getLogger("juju.rspace")
 
 
 class BaseCommand(object):

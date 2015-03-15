@@ -32,7 +32,7 @@ class CommandBase(Base):
         self.config = mock.MagicMock()
         self.provider = mock.MagicMock()
         self.env = mock.MagicMock()
-        self.output = self.capture_logging('juju.docean')
+        self.output = self.capture_logging('juju.rspace')
 
     def setup_env(self, conf=None):
         self.provider.get_ssh_keys.return_value = [
@@ -40,11 +40,11 @@ class CommandBase(Base):
         self.config.series = "precise"
         with tempfile.NamedTemporaryFile(delete=False) as f:
             self.config.get_env_conf.return_value = f.name
-            self.config.get_env_name.return_value = 'docean'
+            self.config.get_env_name.return_value = 'rspace'
             if conf is None:
                 conf = {
                     'environments': {
-                        'docean': {
+                        'rspace': {
                             'type': 'null',
                             'bootstrap-host': None}}}
             f.write(yaml.safe_dump(conf))
@@ -89,7 +89,7 @@ class BaseCommandTest(CommandBase):
     def test_check_preconditions_host_exist(self):
         self.setup_env({
             'environments': {
-                'docean': {
+                'rspace': {
                     'type': 'null',
                     'bootstrap-host': '1.1.1.1'}}})
         try:
@@ -102,7 +102,7 @@ class BaseCommandTest(CommandBase):
     def test_check_preconditions_host_invalid_provider(self):
         self.setup_env({
             'environments': {
-                'docean': {
+                'rspace': {
                     'type': 'ec2',
                     'bootstrap-host': None}}})
         try:
@@ -123,7 +123,7 @@ class BaseCommandTest(CommandBase):
             self.cmd.check_preconditions()
         except ConfigError, e:
             self.assertIn(
-                "Environment 'docean' not in environments.yaml", str(e))
+                "Environment 'rspace' not in environments.yaml", str(e))
 
 
 class BootstrapTest(CommandBase):
@@ -145,7 +145,7 @@ class BootstrapTest(CommandBase):
 
         self.provider.get_instance.return_value = Droplet.from_dict(dict(
             id=2121,
-            name='docean-13290123j13',
+            name='rspace-13290123j13',
             ip_address="10.0.2.1"))
         self.cmd.run()
 
@@ -185,7 +185,7 @@ class TerminateMachineTest(CommandBase):
             }}
         self.provider.get_instances.return_value = [
             Droplet.from_dict(dict(
-                id=221, name="docean-123123", ip_address="10.0.1.23")),
+                id=221, name="rspace-123123", ip_address="10.0.1.23")),
             Droplet.from_dict(dict(
                 id=258, name="docena-209123", ip_address="10.0.1.103"))]
         self.config.options.machines = ["1"]
@@ -204,11 +204,11 @@ class DestroyEnvironmentTest(CommandBase):
         self.setup_env()
         self.provider.get_instances.return_value = [
             Droplet.from_dict(dict(
-                id=220, name="doceanabc", ip_address="10.0.1.19")),
+                id=220, name="rspaceabc", ip_address="10.0.1.19")),
             Droplet.from_dict(dict(
-                id=221, name="docean-123123", ip_address="10.0.1.23")),
+                id=221, name="rspace-123123", ip_address="10.0.1.23")),
             Droplet.from_dict(dict(
-                id=258, name="docean-209123", ip_address="10.0.1.25")),
+                id=258, name="rspace-209123", ip_address="10.0.1.25")),
             Droplet.from_dict(dict(
                 id=233, name="mary", ip_address="10.0.1.32")),
             Droplet.from_dict(dict(
@@ -235,7 +235,7 @@ class DestroyEnvironmentTest(CommandBase):
             }}
         self.provider.get_instances.return_value = [
             Droplet.from_dict(dict(
-                id=221, name="docean-123123", ip_address="10.0.1.23")),
+                id=221, name="rspace-123123", ip_address="10.0.1.23")),
             Droplet.from_dict(dict(
                 id=258, name="docena-209123", ip_address="10.0.1.25"))]
 
@@ -265,7 +265,7 @@ class DestroyEnvironmentTest(CommandBase):
             }}
         self.provider.get_instances.return_value = [
             Droplet.from_dict(dict(
-                id=221, name="docean-123123", ip_address="10.0.1.23")),
+                id=221, name="rspace-123123", ip_address="10.0.1.23")),
             Droplet.from_dict(dict(
                 id=258, name="docena-209123", ip_address="10.0.1.25"))]
 

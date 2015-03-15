@@ -5,7 +5,7 @@ import subprocess
 from juju_rs.exceptions import TimeoutError
 from juju_rs import ssh
 
-log = logging.getLogger("juju.docean")
+log = logging.getLogger("juju.rspace")
 
 
 class MachineOp(object):

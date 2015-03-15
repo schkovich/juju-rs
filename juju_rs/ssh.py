@@ -1,7 +1,7 @@
 import subprocess
 import logging
 
-log = logging.getLogger('juju.docean')
+log = logging.getLogger('juju.rspace')
 
 # juju-core will defer to either ssh or go.crypto/ssh impl
 # these options are only for the ssh ops below (availability

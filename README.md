@@ -5,9 +5,9 @@ Juju RackSpace Provider
 
 
 This package provides a cli plugin for juju that allows for automated
-provisioning of machines on digital ocean. I like to call it JuDo :-)
+provisioning of machines in RackSpace. I like to call it JuDo :-)
 
-Digital ocean is linux vps provider utilizing kvm and ssd across
+RackSpace is linux vps provider utilizing kvm and ssd across
 multiple data centers at a very competitive price with hourly billing.
 
 Juju provides for workloads management and orchestration using a
@@ -99,7 +99,7 @@ several ways to do this, either of the following will do the trick::
 
 Now we can bootstrap our digital ocean environment::
 
-  $ juju docean bootstrap --constraints="mem=2g, region=nyc1"
+  $ juju rspace bootstrap --constraints="mem=2g, region=nyc1"
 
 Which will create a droplet with 2Gb of ram in the nyc1 data center.
 
@@ -111,10 +111,10 @@ After our environment is bootstrapped we can add additional machines
 to it via the the add-machine command, for example the following will
 add 2 additional machines with 2Gb each::
 
-  $ juju docean add-machine -n 2 --constraints="mem=2G, region=nyc2"
+  $ juju rspace add-machine -n 2 --constraints="mem=2G, region=nyc2"
   $ juju status
 
-  environment: docean
+  environment: rspace
   machines:
     "0":
       agent-state: started
@@ -166,7 +166,7 @@ with the list-machines command. This directly queries the digital ocean api and
 does not interact with juju api. It also takes a --all option to list all machines
 in digitalocean account (irrespective of environment).::
 
-  $ juju docean list-machines
+  $ juju rspace list-machines
 
   Id       Name               Size  Status   Created      Region Address   
   2442349  ocean-0            512MB active   2014-08-25   nyc2   162.243.123.121
@@ -176,14 +176,14 @@ in digitalocean account (irrespective of environment).::
   2442403  ocean-f35ffedd9... 2GB   active   2014-08-25   nyc3   104.131.43.242
 
 We can terminate allocated machines by their machine id. By default with the
-docean plugin, machines are forcibly terminated which will also terminate any
+rspace plugin, machines are forcibly terminated which will also terminate any
 service units on those machines::
 
-  $ juju docean terminate-machine 1 2
+  $ juju rspace terminate-machine 1 2
 
 And we can destroy the entire environment via::
 
-  $ juju docean destroy-environment
+  $ juju rspace destroy-environment
 
 All commands have builtin help facilities and accept a -v option which will
 print verbose output while running.
