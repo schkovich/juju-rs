@@ -2,9 +2,9 @@ import os
 import yaml
 import sys
 
-from juju_docean.env import Environment
-from juju_docean.exceptions import ConfigError
-from juju_docean import provider
+from juju_rs.env import Environment
+from juju_rs.exceptions import ConfigError
+from juju_rs import provider
 
 
 class Config(object):

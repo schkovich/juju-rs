@@ -1,6 +1,6 @@
 from base import Base
 
-from juju_docean.constraints import solve_constraints
+from juju_rs.constraints import solve_constraints
 
 
 class ConstraintTests(Base):

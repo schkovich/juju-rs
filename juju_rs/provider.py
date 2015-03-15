@@ -2,8 +2,8 @@ import logging
 import os
 import time
 
-from juju_docean.exceptions import ConfigError, ProviderError
-from juju_docean.client import Client
+from juju_rs.exceptions import ConfigError, ProviderError
+from juju_rs.client import Client
 
 log = logging.getLogger("juju.docean")
 

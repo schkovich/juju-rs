@@ -1,7 +1,7 @@
 from base import Base
 
 from requests import Response
-from juju_docean.exceptions import ProviderAPIError
+from juju_rs.exceptions import ProviderAPIError
 
 
 class ExcceptionTests(Base):

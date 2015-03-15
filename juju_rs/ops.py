@@ -2,8 +2,8 @@ import logging
 import time
 import subprocess
 
-from juju_docean.exceptions import TimeoutError
-from juju_docean import ssh
+from juju_rs.exceptions import TimeoutError
+from juju_rs import ssh
 
 log = logging.getLogger("juju.docean")
 

@@ -9,7 +9,7 @@ import yaml
 
 log = logging.getLogger("juju.docean")
 
-from juju_docean.constraints import SERIES_MAP
+from juju_rs.constraints import SERIES_MAP
 
 
 class Environment(object):

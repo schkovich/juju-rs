@@ -35,7 +35,7 @@ Plugin installation is done via pip/easy_install which is the python language
 package managers, its available by default on ubuntu. Also recommended
 is virtualenv to sandbox this install from your system packages::
 
-  $ pip install -U juju-docean
+  $ pip install -U juju-rs
 
 Fwiw, currently the transitive dependency tree is PyYAML, requests, dop.
 

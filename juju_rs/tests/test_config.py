@@ -1,8 +1,8 @@
 import os
 import yaml
 
-from juju_docean.config import Config
-from juju_docean.exceptions import ConfigError
+from juju_rs.config import Config
+from juju_rs.exceptions import ConfigError
 
 from base import Base
 

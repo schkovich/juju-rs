@@ -1,5 +1,5 @@
 
-from juju_docean.runner import Runner
+from juju_rs.runner import Runner
 from base import Base
 
 

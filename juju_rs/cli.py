@@ -2,11 +2,11 @@ import argparse
 import logging
 import sys
 
-from juju_docean.config import Config
-from juju_docean.constraints import SERIES_MAP
-from juju_docean.exceptions import (
+from juju_rs.config import Config
+from juju_rs.constraints import SERIES_MAP
+from juju_rs.exceptions import (
     ConfigError, PrecheckError, ProviderAPIError)
-from juju_docean import commands
+from juju_rs import commands
 
 
 def _default_opts(parser):

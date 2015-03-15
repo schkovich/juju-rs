@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-setup(name='juju-docean',
+setup(name='juju-rs',
       version="0.5.1",
       classifiers=[
           'Intended Audience :: Developers',
@@ -17,5 +17,5 @@ setup(name='juju-docean',
       tests_require=["nose", "mock"],
       entry_points={
           "console_scripts": [
-              'juju-docean = juju_docean.cli:main']},
+              'juju-rs = juju_rs.cli:main']},
       )

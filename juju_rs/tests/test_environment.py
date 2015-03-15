@@ -3,9 +3,9 @@ import mock
 import os
 import yaml
 
-from juju_docean.env import Environment
+from juju_rs.env import Environment
 
-from juju_docean.tests.base import Base
+from juju_rs.tests.base import Base
 
 
 class EnvironmentTest(Base):

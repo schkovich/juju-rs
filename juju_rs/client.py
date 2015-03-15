@@ -1,6 +1,6 @@
 import os
 
-from juju_docean.exceptions import ProviderAPIError
+from juju_rs.exceptions import ProviderAPIError
 
 import requests
 

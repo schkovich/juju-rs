@@ -3,10 +3,10 @@ import time
 import uuid
 import yaml
 
-from juju_docean import constraints
-from juju_docean.exceptions import ConfigError, PrecheckError
-from juju_docean import ops
-from juju_docean.runner import Runner
+from juju_rs import constraints
+from juju_rs.exceptions import ConfigError, PrecheckError
+from juju_rs import ops
+from juju_rs.runner import Runner
 
 
 log = logging.getLogger("juju.docean")

@@ -6,7 +6,7 @@ import tempfile
 import unittest
 import yaml
 
-from juju_docean.commands import (
+from juju_rs.commands import (
     BaseCommand,
     Bootstrap,
     AddMachine,
@@ -14,9 +14,9 @@ from juju_docean.commands import (
     DestroyEnvironment)
 
 
-from juju_docean.client import SSHKey, Droplet
-from juju_docean.exceptions import ConfigError
-from juju_docean.tests.base import Base
+from juju_rs.client import SSHKey, Droplet
+from juju_rs.exceptions import ConfigError
+from juju_rs.tests.base import Base
 
 # Generated from constraints.images(do_client)
 IMAGE_MAP = {
@@ -132,8 +132,8 @@ class BootstrapTest(CommandBase):
         super(BootstrapTest, self).setUp()
         self.cmd = Bootstrap(self.config, self.provider, self.env)
 
-    @mock.patch('juju_docean.constraints.get_images')
-    @mock.patch('juju_docean.ops.ssh')
+    @mock.patch('juju_rs.constraints.get_images')
+    @mock.patch('juju_rs.ops.ssh')
     def test_bootstrap(self, mock_ssh, mock_get_images):
         mock_get_images.return_value = IMAGE_MAP
         self.setup_env()
@@ -162,7 +162,7 @@ class AddMachineTest(CommandBase):
         super(AddMachineTest, self).setUp()
         self.cmd = AddMachine(self.config, self.provider, self.env)
 
-    @mock.patch('juju_docean.constraints.get_images')
+    @mock.patch('juju_rs.constraints.get_images')
     def test_add_machine(self, mock_get_images):
         mock_get_images.return_value = IMAGE_MAP
         self.setup_env()
@@ -220,7 +220,7 @@ class DestroyEnvironmentTest(CommandBase):
             [mock.call(221), mock.call(258)])
         self.env.destroy_environment_jenv.assert_called_once()
 
-    @mock.patch('juju_docean.commands.time')
+    @mock.patch('juju_rs.commands.time')
     def test_destroy_environment(self, mock_time):
         self.config.options.force = False
         self.setup_env()
@@ -247,7 +247,7 @@ class DestroyEnvironmentTest(CommandBase):
             [mock.call(258), mock.call(221)])
         self.env.terminate_machines.assert_called_once_with(['1'])
 
-    @mock.patch('juju_docean.commands.time')
+    @mock.patch('juju_rs.commands.time')
     def test_destroy_environment_with_missing_iaas_machine(self, mock_time):
         self.config.options.force = False
         self.setup_env()
