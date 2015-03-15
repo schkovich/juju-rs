@@ -1,8 +1,7 @@
 Juju RackSpace Provider
 ---------------------------
 
-.. image:: https://0ffddf3700fca63d7eee-f2158e9965ca1e4dc7433839c207ae5c.ssl.cf1.rackcdn.com/site_media/images/logo-rackspace-managed-cloud-company.png
-   :target: here_
+[![RackSpace](http://0ffddf3700fca63d7eee-f2158e9965ca1e4dc7433839c207ae5c.ssl.cf1.rackcdn.com/site_media/images/logo-rackspace-managed-cloud-company.png "RackSpace")](http://www.rackspace.co.uk/)
 
 
 This package provides a cli plugin for juju that allows for automated
@@ -214,6 +213,3 @@ Additionally it supports the following provider specific constraints.
 
   - 'transfer' to denote the terabytes of transfer included in the
     instance monthly cost (integer size in gigabytes).
-
-
-.. _here: https://www.digitalocean.com/?refcode=5df4b80c84c8
