@@ -1,9 +1,15 @@
 import os
 
+# http://stackoverflow.com/a/20782252
+import json
+
 from juju_rs.exceptions import ProviderAPIError
 
-import requests
+# https://github.com/shazow/urllib3/issues/497
+import requests.packages.urllib3
+requests.packages.urllib3.disable_warnings()
 
+import requests
 
 class Entity(object):
 
@@ -94,19 +100,24 @@ class Client(object):
 
     def request(self, target, method='GET', params=None):
         p = params and dict(params) or {}
-        p['client_id'] = self.client_id
-        p['api_key'] = self.api_key
+        credentials = dict(
+            username=self.client_id, apiKey=self.api_key
+        )
+        auth = dict()
+        auth['RAX-KSKEY:apiKeyCredentials'] = credentials
+        p['auth'] = auth
 
         headers = {'User-Agent': 'juju/client'}
+        headers['Content-Type'] = "application/json"
         url = self.get_url(target)
-
+        print json.dumps(p)
         if method == 'POST':
-            headers['Content-Type'] = "application/json"
             response = requests.post(url, headers=headers, params=p)
         else:
             response = requests.get(url, headers=headers, params=p)
 
         data = response.json()
+        print json.dumps(data)
         if not data:
             raise ProviderAPIError(response, 'No json result found')
 
